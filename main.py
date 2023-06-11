@@ -1,7 +1,7 @@
-# uvicorn main:app --reload
+# uvicorn main:app --reload --port 8001
 import os
 from fastapi import FastAPI
-from routers import users
+from routers import users, catalogue, rating
 from fastapi.middleware.cors import CORSMiddleware
 from utils.api import origins
 
@@ -10,6 +10,8 @@ from utils.api import origins
 app = FastAPI()
 
 app.include_router(users.router)
+app.include_router(catalogue.router)
+app.include_router(rating.router)
 
 app.add_middleware(
     CORSMiddleware,
