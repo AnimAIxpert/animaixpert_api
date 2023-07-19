@@ -5,8 +5,6 @@ import httpx
 
 router = APIRouter()
 
-
-
 @router.get("/get-rating-by-ids")
 async def get_anime(user_id: str , anime_id: int):
     headers = {
